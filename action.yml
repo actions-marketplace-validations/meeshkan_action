@@ -4,10 +4,10 @@ branding:
   icon: 'wind'
   color: 'red'
 inputs:
-  who-to-greet: # id of input
-    description: 'Who to greet'
+  endpoint: # id of input
+    description: 'HTTP endpoint to access'
     required: true
-    default: 'World'
+    default: 'http://localhost:8080'
 outputs:
   meeshkan_time: # id of output
     description: 'The time we greeted you'
