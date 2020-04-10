@@ -1,19 +1,27 @@
 name: 'meeshkan'
+
 description: 'Greet someone and record the time'
+
 branding:
   icon: 'wind'
   color: 'red'
+
 inputs:
   endpoint: # id of input
     description: 'HTTP endpoint to access'
     required: true
     default: 'http://localhost:8080'
+
 outputs:
   meeshkan_time: # id of output
     description: 'The time we greeted you'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.endpoint }}
+  env:
+    MEESHKAN_TEST: value1
+    MEESHKAN_ENDPOINT: ${{ inputs.endpoint }}
 
