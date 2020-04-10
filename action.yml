@@ -4,12 +4,12 @@ branding:
   icon: 'wind'
   color: 'red'
 inputs:
-  who-to-greet:  # id of input
+  who-to-greet: # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
 outputs:
-  time: # id of output
+  meeshkan_time: # id of output
     description: 'The time we greeted you'
 runs:
   using: 'docker'
