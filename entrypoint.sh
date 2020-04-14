@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-echo "Version: 6"
+echo "Version: 7"
 
 time=$(date)
 echo ::set-output name=meeshkan_time::$time
@@ -20,7 +20,7 @@ REWRITTEN_ENDPOINT=$(echo $MEESHKAN_ENDPOINT | sed "s/\/\/localhost/\/\/$HOST_IP
 
 MEESHKAN_SERVER_UP=false
 for i in `seq 20`; do
-    wget $REWRITTEN_ENDPOINT # > /dev/null 2> /dev/null
+    wget --spider $REWRITTEN_ENDPOINT > /dev/null 2> /dev/null
     if [ $? = 0 ]; then
         MEESHKAN_SERVER_UP=true
         break
