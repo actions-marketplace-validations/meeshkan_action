@@ -17,6 +17,4 @@ echo "Original endpoint: $MEESHKAN_ENDPOINT"
 echo "Rewritten endpoint: $REWRITTEN_ENDPOINT"
 
 # curl $BASE_URL
-schemathesis $REWRITTEN_ENDPOINT
-
-
+schemathesis run $REWRITTEN_ENDPOINT
