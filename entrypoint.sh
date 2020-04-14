@@ -13,9 +13,24 @@ echo ::set-output name=meeshkan_time::$time
 HOST_IP=$(ip route show | awk '/default/ {print $3}')
 REWRITTEN_ENDPOINT=$(echo $MEESHKAN_ENDPOINT | sed "s/\/\/localhost/\/\/$HOST_IP/")
 
-echo "Original endpoint: $MEESHKAN_ENDPOINT"
-echo "Rewritten endpoint: $REWRITTEN_ENDPOINT"
+# echo "Original endpoint: $MEESHKAN_ENDPOINT"
+# echo "Rewritten endpoint: $REWRITTEN_ENDPOINT"
+
+MEESHKAN_SERVER_UP=false
+for i in `seq 20`; do
+    curl $REWRITTEN_ENDPOINT > /dev/null 2> /dev/null
+    if [ $? = 0 ]; then
+        MEESHKAN_SERVER_UP=true
+        break
+    fi
+    echo "Awaiting server..."
+    sleep 6
+done
+
+if [ $MEESHKAN_SERVER_UP = false ]; then
+    echo "ERROR: Server is not responding on $REWRITTEN_ENDPOINT"
+    exit 1
+fi
 
 # curl $BASE_URL
-echo "About to run: schemathesis run $REWRITTEN_ENDPOINT"
 schemathesis run $REWRITTEN_ENDPOINT
