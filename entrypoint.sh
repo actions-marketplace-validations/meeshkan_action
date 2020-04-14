@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+echo "Version: 5"
+
 time=$(date)
 echo ::set-output name=meeshkan_time::$time
 
