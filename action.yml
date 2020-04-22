@@ -1,6 +1,6 @@
 name: 'meeshkan'
 
-description: 'Greet someone and record the time'
+description: 'Run tests given an OpenAPI schema'
 
 branding:
   icon: 'wind'
@@ -8,7 +8,7 @@ branding:
 
 inputs:
   endpoint: # id of input
-    description: 'HTTP endpoint to access'
+    description: 'Location of the OpenAPI schema to test'
     required: true
     default: 'http://localhost:8080'
 
