@@ -1,27 +1,24 @@
-name: 'meeshkan'
+name: 'Meeshkan'
 
-description: 'Run tests given an OpenAPI schema'
+description: 'Run tests against a service'
 
 branding:
   icon: 'wind'
   color: 'red'
 
 inputs:
-  endpoint: # id of input
-    description: 'Location of the OpenAPI schema to test'
+  client_id: # id of input
+    description: 'The client id obtained from Meeshkan'
     required: true
     default: 'http://localhost:8080'
-
-outputs:
-  meeshkan_time: # id of output
-    description: 'The time we greeted you'
+  client_secret: # id of input
+    description: 'A secret token obtained from Meeshkan'
+    required: true
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.endpoint }}
   env:
-    MEESHKAN_TEST: value1
-    MEESHKAN_ENDPOINT: ${{ inputs.endpoint }}
+    MEESHKAN_CLIENT_ID: ${{ inputs.client_id }}
+    MEESHKAN_CLIENT_SECRET: ${{ inputs.client_secret }}
 
