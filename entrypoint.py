@@ -4,11 +4,11 @@ import sys
 import os
 import requests
 
-
 MEESHKAN_CLIENT_ID = os.environ["MEESHKAN_CLIENT_ID"]
 MEESHKAN_CLIENT_SECRET = os.environ["MEESHKAN_CLIENT_ID"]
 MEESHKAN_URL = os.environ["MEESHKAN_URL"]
-#asdf
+
+print("Meeshkan GitHub Action v0.7")
 
 def run_tests(client_id, client_secret, url):
     try:
