@@ -7,12 +7,15 @@ branding:
   color: 'red'
 
 inputs:
-  client_id: # id of input
+  client_id:
     description: 'The client id obtained from Meeshkan'
     required: true
     default: 'http://localhost:8080'
-  client_secret: # id of input
+  client_secret:
     description: 'A secret token obtained from Meeshkan'
+    required: true
+  url:
+    description: 'The URL which Meeshkan will test'
     required: true
 
 runs:
@@ -21,4 +24,4 @@ runs:
   env:
     MEESHKAN_CLIENT_ID: ${{ inputs.client_id }}
     MEESHKAN_CLIENT_SECRET: ${{ inputs.client_secret }}
-
+    MEESHKAN_URL: ${{ inputs.url }}
