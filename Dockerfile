@@ -1,8 +1,4 @@
-FROM kiwicom/schemathesis:stable
-
-# FROM alpine:3.10
-# RUN apk add --update curl \
-#     && rm -rf /var/cache/apk/*
+FROM ubuntu:20.04
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
