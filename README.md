@@ -10,6 +10,7 @@ Add this build step:
       with:
         client_id: '204d89a3-8d0b-4223-83fe-efcbd6d41e16'
         client_secret: ${{ secrets.MEESHKAN_CLIENT_SECRET }}
+        url: $URL_TO_TEST_AGAINST
 ```
 
 # Resources
