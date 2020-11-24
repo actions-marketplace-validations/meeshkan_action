@@ -1,17 +1,15 @@
 # Meeshkan GitHub action
 A GitHub action to run HTTP based tests against a service.
 
-NOTE: Early experiments at this stage.
-
 # Usage
 Add this build step:
 
 ```yaml
     - name: Run meeshkan tests
-      id: meeshkan
       uses: meeshkan/action@master
       with:
-        endpoint: 'http://localhost:8080'
+        client_id: '204d89a3-8d0b-4223-83fe-efcbd6d41e16'
+        client_secret: ${{ secrets.MEESHKAN_CLIENT_SECRET }}
 ```
 
 # Resources
