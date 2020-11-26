@@ -4,20 +4,41 @@ import sys
 import os
 import requests
 
+print("Meeshkan GitHub Action v0.8")
+
+TESTER_ENDPOINT_URL = (
+    "https://qwyl7a68yd.execute-api.eu-west-1.amazonaws.com/default/test-trigger"
+)
+
 MEESHKAN_CLIENT_ID = os.environ["MEESHKAN_CLIENT_ID"]
-MEESHKAN_CLIENT_SECRET = os.environ["MEESHKAN_CLIENT_ID"]
+MEESHKAN_CLIENT_SECRET = os.environ["MEESHKAN_CLIENT_SECRET"]
 MEESHKAN_URL = os.environ["MEESHKAN_URL"]
 
-print("Meeshkan GitHub Action v0.7")
+current_repository = os.environ["GITHUB_REPOSITORY"]
+current_commit_branch = os.environ["GITHUB_REF"]
+current_commit_hash = os.environ["GITHUB_SHA"]
+
 
 def run_tests(client_id, client_secret, url):
+    headers = {"meeshkan-client-secret": MEESHKAN_CLIENT_SECRET}
+
+    test_input = {
+        "client_id": client_id,
+        "url": url,
+        "pipeline_id": f"{current_repository}/{current_commit_branch}/{current_commit_hash}",
+        "test_suite": "default",
+    }
+
+    print(f"Posting {test_input} to test runner")
+
     try:
-        response = requests.get(url)
-        if response.status_code / 100 == 2:
-            print("Ok")
+        response = requests.post(TESTER_ENDPOINT_URL, json=test_input)
+        if response.status_code == 200:
+            print("Triggered test run")
         else:
-            sys.exit(f"Non-2xx response from {url}")
+            sys.exit(f"Internal error trigger tests: {response.status_code}")
     except Exception:
         sys.exit(f"Invalid URL specified: {url}")
+
 
 run_tests(MEESHKAN_CLIENT_ID, MEESHKAN_CLIENT_SECRET, MEESHKAN_URL)
