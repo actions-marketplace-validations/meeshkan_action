@@ -7,7 +7,7 @@ import requests
 print("Meeshkan GitHub Action v0.8")
 
 TESTER_ENDPOINT_URL = (
-    "https://qwyl7a68yd.execute-api.eu-west-1.amazonaws.com/default/test-trigger"
+    "https://txwwxrn43i.execute-api.eu-west-1.amazonaws.com/prod/test-trigger"
 )
 
 MEESHKAN_CLIENT_ID = os.environ["MEESHKAN_CLIENT_ID"]
