@@ -23,10 +23,9 @@ def run_tests(client_id, client_secret, url):
     headers = {"meeshkan-client-secret": MEESHKAN_CLIENT_SECRET}
 
     test_input = {
-        "client_id": client_id,
+        "clientId": client_id,
         "url": url,
-        "pipeline_id": f"{current_repository}/{current_commit_branch}/{current_commit_hash}",
-        "test_suite": "default",
+        # "pipeline_id": f"{current_repository}/{current_commit_branch}/{current_commit_hash}",
     }
 
     print(f"Posting {test_input} to test runner")
