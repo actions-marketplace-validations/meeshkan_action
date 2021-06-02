@@ -1,6 +1,6 @@
 name: 'Meeshkan'
 
-description: 'Run tests against a service'
+description: 'Run Meeshkan test runs against a service'
 
 branding:
   icon: 'wind'
@@ -8,14 +8,14 @@ branding:
 
 inputs:
   client_id:
-    description: 'The client id obtained from Meeshkan'
+    description: 'The project client ID obtained from the Meeshkan webapp'
     required: true
     default: 'http://localhost:8080'
   client_secret:
-    description: 'A secret token obtained from Meeshkan'
+    description: 'A secret token obtained from the Meeshkan webapp'
     required: true
   url:
-    description: 'The URL which Meeshkan will test'
+    description: 'The URL that Meeshkan will test'
     required: true
 
 runs:
