@@ -18,7 +18,6 @@ current_repository = os.environ["GITHUB_REPOSITORY"]
 current_commit_branch = os.environ["GITHUB_REF"]
 current_commit_hash = os.environ["GITHUB_SHA"]
 
-
 def run_tests(client_id, client_secret, url):
     headers = {"meeshkan-client-secret": MEESHKAN_CLIENT_SECRET}
 
@@ -35,11 +34,10 @@ def run_tests(client_id, client_secret, url):
         if response.status_code == 200:
             print("Triggered test run")
         else:
-            print(f"Internal error trigger tests: {response.status_code}")
+            print(f"Internal error triggering test run: {response.status_code}")
             sys.exit(1)
     except Exception:
         print(f"Invalid URL specified: {url}")
         sys.exit(1)
-
 
 run_tests(MEESHKAN_CLIENT_ID, MEESHKAN_CLIENT_SECRET, MEESHKAN_URL)
