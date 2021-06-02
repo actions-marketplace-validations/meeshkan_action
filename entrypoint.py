@@ -4,7 +4,7 @@ import sys
 import os
 import requests
 
-print("Meeshkan GitHub Action v0.9")
+print("Meeshkan GitHub Action v1.0")
 
 TESTER_ENDPOINT_URL = (
     "https://txwwxrn43i.execute-api.eu-west-1.amazonaws.com/prod/test-trigger"
