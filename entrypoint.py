@@ -8,7 +8,7 @@ from slugify import slugify
 print("Meeshkan GitHub Action v1.0")
 
 TESTER_ENDPOINT_URL = (
-    "https://7cs97h8es9.execute-api.eu-west-1.amazonaws.com/main/test-trigger"
+    "https://t9ky8625ne.execute-api.eu-west-1.amazonaws.com/staging/test-trigger"
 )
 
 MEESHKAN_CLIENT_ID = os.environ["MEESHKAN_CLIENT_ID"]
