@@ -3,6 +3,7 @@
 import sys
 import os
 import requests
+from slugify import slugify
 
 print("Meeshkan GitHub Action v1.0")
 
@@ -31,8 +32,9 @@ def run_tests(client_id, client_secret, url):
 
     try:
         response = requests.post(TESTER_ENDPOINT_URL, json=test_input)
+        response_body = response.json()
         if response.status_code == 200:
-            print("Triggered test run")
+            print(f"Triggered test run: https://app.meeshkan.com/{slugify(response_body['projectName'])}/test-runs/{response_body['testRunID']}")
         else:
             print(f"Internal error triggering test run: {response.status_code}")
             sys.exit(1)
