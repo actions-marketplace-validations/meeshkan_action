@@ -22,6 +22,7 @@ runs:
   using: 'docker'
   image: 'docker://meeshkan/test-trigger:latest'
   env:
+    CI_PROVIDER: 'github'
     MEESHKAN_CLIENT_ID: ${{ inputs.client_id }}
     MEESHKAN_CLIENT_SECRET: ${{ inputs.client_secret }}
     MEESHKAN_URL: ${{ inputs.url }}
