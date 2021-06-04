@@ -20,7 +20,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'meeshkan/test-trigger:latest'
+  image: 'docker://meeshkan/test-trigger:latest'
   env:
     MEESHKAN_CLIENT_ID: ${{ inputs.client_id }}
     MEESHKAN_CLIENT_SECRET: ${{ inputs.client_secret }}
